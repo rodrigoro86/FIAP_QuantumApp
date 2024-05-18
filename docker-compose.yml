@@ -16,8 +16,8 @@ services:
       - /var/log/log_api:/app/logs
     environment:
       MONGO_URI: "mongodb://your_username:mypass@mongodb:27017"
-      POSTGRES_URI: "postgresql://postgres:postgres@db:5432/pamps"
-      POSTGRES_TEST_URI: "postgresql://postgres:postgres@db:5432/pamps_test"
+      PAMPS_DB__uri: "postgresql://postgres:postgres@db:5432/${PAMPS_DB:-pamps}"
+      PAMPS_DB__connect_args: "{}"
 
     depends_on:
       - mongodb
