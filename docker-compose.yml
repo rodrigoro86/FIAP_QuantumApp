@@ -1,0 +1,42 @@
+version: '3'
+services:
+  
+  api:
+    container_name: api
+    environment:
+      - "TZ=America/Sao_Paulo"
+    build:
+      context: ./api  # Diretório onde está o código do FastAPI
+    ports:
+      - "8000:8000"
+    networks:
+      my-network:
+        ipv4_address: 172.20.0.3
+    volumes:
+      - /var/log/log_api:/app/logs
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: your_username
+      MONGO_INITDB_ROOT_PASSWORD: mypass
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      my-network:
+        ipv4_address: 172.20.0.2
+
+networks:
+  my-network:
+    ipam:
+        driver: default
+        config:
+          - subnet: 172.20.0.0/24
+
+volumes:
+  mongodb_data:
