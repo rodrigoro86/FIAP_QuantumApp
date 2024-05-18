@@ -13,6 +13,7 @@ services:
       my-network:
         ipv4_address: 172.20.0.10
     volumes:
+      - ./api/:/app/
       - /var/log/log_api:/app/logs
     environment:
       MONGO_URI: "mongodb://your_username:mypass@mongodb:27017"
