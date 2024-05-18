@@ -34,8 +34,16 @@ Esse projeto está sendo desenvolvido com docker, para rodar esse projeto basta 
 `docker-compose up -d`  
 
 ### Como usar
-Ao iniciar os containers a API ficara exposta no URL: http://127.0.0.1:8000/  
-A Documentação da API está na URL: http://127.0.0.1:8000/redoc e http://127.0.0.1:8000/docs  
+Ao iniciar os containers a API ficara exposta no URL: http://127.0.0.1:8000/ 
+![Imagem do Index da API](api/arq/readme_file/index.png) 
+
+### Documentação  
+A Documentação da API está na URL: 
+http://127.0.0.1:8000/redoc
+![Imagem da documentação](api/arq/readme_file/redoc.png)
+http://127.0.0.1:8000/docs  
+![Imagem da documentação de teste](api/arq/readme_file/docs.png)
+
 
 ### Contribuindo
 
