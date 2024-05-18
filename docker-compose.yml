@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 services:
   
   api:
@@ -11,11 +11,18 @@ services:
       - "8000:8000"
     networks:
       my-network:
-        ipv4_address: 172.20.0.3
+        ipv4_address: 172.20.0.10
     volumes:
       - /var/log/log_api:/app/logs
+    environment:
+      MONGO_URI: "mongodb://your_username:mypass@mongodb:27017"
+      POSTGRES_URI: "postgresql://postgres:postgres@db:5432/pamps"
+      POSTGRES_TEST_URI: "postgresql://postgres:postgres@db:5432/pamps_test"
+
     depends_on:
       - mongodb
+    stdin_open: true
+    tty: true
 
   mongodb:
     image: mongo:4.4.6
@@ -30,6 +37,31 @@ services:
     networks:
       my-network:
         ipv4_address: 172.20.0.2
+
+  db:
+    build: postgres
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DBS=pamps, pamps_test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      my-network:
+        ipv4_address: 172.20.0.3
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "your-email@example.com"
+      PGADMIN_DEFAULT_PASSWORD: "your-password"
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin-data:/root/.pgadmin
 
 networks:
   my-network:

@@ -1,0 +1,1 @@
+MONGO_CONNECTION_STRING=mongodb://your_username:mypass@192.168.31.252:27017/
