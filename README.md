@@ -7,6 +7,7 @@
 ## Índice
 
 - [Sobre](#sobre)
+- [Avaliativa 1](#avaliativa-1)
 - [Instalação](#instalação)
 - [Como usar](#como-usar)
 - [Contribuindo](#contribuindo)
@@ -14,8 +15,11 @@
 ### Sobre
 A QuantumFinance contratou a consultoria SmartMind Analytics para desenvolver seu aplicativo QuantumApp. O objetivo é que o aplicativo seja simples e fácil de operar, e listaram uma série de requisitos para o negócio.
 
-### Avaliativa 1 - ADVANCED DATA MODELING
-**Professor** EDUARDO FERREIRA GALEGO
+### Avaliativa 1
+**ADVANCED DATA MODELING**   
+**Professor** EDUARDO FERREIRA GALEGO  
+
+#### Descrição
 Como arquiteto de dados, desenvolva modelo de dados com a técnica mais performática para cada requisito do Aplicativo.​
 
 - ​Cadastro de cliente com fotos e assinatura eletrônica, e informações dos contatos do cliente​
