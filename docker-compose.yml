@@ -38,17 +38,17 @@ services:
       my-network:
         ipv4_address: 172.20.0.2
 
-  db:
-    build: postgres
-    image: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: quantun
     ports:
       - "5432:5432"
-    environment:
-      - POSTGRES_DBS=pamps, pamps_test
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     networks:
       my-network:
         ipv4_address: 172.20.0.3
@@ -62,6 +62,9 @@ services:
       - "8080:80"
     volumes:
       - pgadmin-data:/root/.pgadmin
+    networks:
+      my-network:
+        ipv4_address: 172.20.0.4
 
 networks:
   my-network:
