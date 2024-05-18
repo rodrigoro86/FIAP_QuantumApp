@@ -1,6 +1,6 @@
 # FIAP_QuantumApp
 
-## Projeto Integrado ADVANCED DATA MODELING
+## Projeto Integrado 
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
@@ -12,7 +12,11 @@
 - [Contribuindo](#contribuindo)
 
 ### Sobre
-A QuantumFinance contratou a consultoria SmartMind Analytics para desenvolver seu aplicativo QuantumApp. O objetivo é que o aplicativo seja simples e fácil de operar, e listaram uma série de requisitos para o negócio. Como arquiteto de dados, desenvolva modelo de dados com a técnica mais performática para cada requisito do Aplicativo.​
+A QuantumFinance contratou a consultoria SmartMind Analytics para desenvolver seu aplicativo QuantumApp. O objetivo é que o aplicativo seja simples e fácil de operar, e listaram uma série de requisitos para o negócio.
+
+### Avaliativa 1 - ADVANCED DATA MODELING
+**Professor** EDUARDO FERREIRA GALEGO
+Como arquiteto de dados, desenvolva modelo de dados com a técnica mais performática para cada requisito do Aplicativo.​
 
 - ​Cadastro de cliente com fotos e assinatura eletrônica, e informações dos contatos do cliente​
 - Processo de transações (Doc, TED, Pix)​
@@ -26,10 +30,10 @@ Esse projeto está sendo desenvolvido com docker, para rodar esse projeto basta 
 `docker-compose up -d`  
 
 ### Como usar
-Ao iniciar os containers a API ficara exposta no URL: http://127.0.0.1:8000/
+Ao iniciar os containers a API ficara exposta no URL: http://127.0.0.1:8000/  
 A Documentação da API está na URL: http://127.0.0.1:8000/redoc e http://127.0.0.1:8000/docs  
 
-### contribuindo
+### Contribuindo
 
 O grupo é composto por: 
 - Axima
