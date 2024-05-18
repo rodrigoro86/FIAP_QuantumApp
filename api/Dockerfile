@@ -10,7 +10,7 @@ COPY requirements.txt .
 # Instale as dependências
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-COPY requirements.txt .
+COPY . .
 
 # Exponha a porta 8000 para acesso externo
 EXPOSE 8000
