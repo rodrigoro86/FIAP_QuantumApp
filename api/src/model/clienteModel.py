@@ -4,6 +4,8 @@ from datetime import date
 from enum import Enum
 import re
 
+from src.security.security import HashedPassword
+
 class SexoEnum(str, Enum):
     masculino = 'Masculino'
     feminino = 'Feminino'
@@ -70,7 +72,11 @@ class ClienteModel(BaseModel):
     nacionalidade: str = Field(..., description="Nacionalidade do cliente", example="Brasileira")
     certidao_estado_civil: str = Field(..., description="Certidão de estado civil do cliente", example="123456")
     dados_conjuge: Optional[Conjuge] = Field(None, description="Dados do cônjuge do cliente", example={"nome": "Maria", "sobrenome": "Silva", "cpf": "987.654.321-00", "rg": "SP-98.765.432", "data_de_nascimento": "1982-02-02"})
+    password: str
 
+    @validator('password')
+    def hash_password(cls, value: str) -> str:
+        return HashedPassword(value)
 
     @validator('cpf')
     def validar_cpf(cls, v):
