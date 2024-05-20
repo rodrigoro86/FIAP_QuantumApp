@@ -14,11 +14,11 @@ services:
         ipv4_address: 172.20.0.10
     volumes:
       - ./api/:/app/
-      - /var/log/log_api:/app/logs
+      - /var/log/log_api:/app/logs/
     environment:
-      MONGO_URI: "mongodb://your_username:mypass@mongodb:27017"
-      PAMPS_DB__uri: "postgresql://postgres:postgres@db:5432/${PAMPS_DB:-pamps}"
-      PAMPS_DB__connect_args: "{}"
+      MYAPP_MODE: "development"
+      MYAPP_MONGO_URI: "mongodb://your_username:mypass@mongodb:27017/"
+      MYAPP_POSTGRES_URI: "postgresql://postgres:postgres@postgres:5432/"
 
     depends_on:
       - mongodb
@@ -38,6 +38,20 @@ services:
     networks:
       my-network:
         ipv4_address: 172.20.0.2
+
+  adminmongo:
+    image: mrvautin/adminmongo
+    container_name: adminmongo
+    ports:
+      - "1234:1234"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=1234
+    networks:
+      my-network:
+        ipv4_address: 172.20.0.5
+    volumes:
+      - adminmongo-data:/data
 
   postgres:
     image: postgres:13
@@ -78,3 +92,4 @@ volumes:
   mongodb_data:
   postgres_data:
   pgadmin-data:
+  adminmongo-data:

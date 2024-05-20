@@ -17,7 +17,9 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    
+    return settings.ambiente
+    #return templates.TemplateResponse("index.html", {"request": request})
 
 
 app.add_middleware(

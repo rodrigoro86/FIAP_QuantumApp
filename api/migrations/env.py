@@ -42,7 +42,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = settings.db.uri
+    url = settings.POSTGRES_URI
     context.configure(
         url=url,
         target_metadata=target_metadata,

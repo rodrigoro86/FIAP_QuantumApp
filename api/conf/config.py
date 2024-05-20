@@ -10,11 +10,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 settings = Dynaconf(
-    #envvar_prefix="QUANTUNAPP",     #Tudo que tiver QUANTUNAPP_ será considerado
+    envvar_prefix="MYAPP",     #Tudo que tiver QUANTUNAPP_ será considerado
     preload=[os.path.join(HERE, "default.toml")],   #Carrega o arquivo default.toml antes de qualquer outro
-    #settings_files=["settings.toml", ".secrets.toml"],  #Carrega os arquivos settings.toml e .secrets.toml
+    settings_files=["settings.toml", ".secrets.toml"],  #Carrega os arquivos settings.toml e .secrets.toml
     environments=['development', 'production', 'testing'],   #Define os ambientes disponíveis
-    env_switcher="QUANTUNAPP_ENV",   #Variável de ambiente que define o ambiente
+    env_switcher="MYAPP_MODE",   #Variável de ambiente que define o ambiente
     load_dotenv=False,   #Carrega as variáveis de ambiente do arquivo .env
 )
 

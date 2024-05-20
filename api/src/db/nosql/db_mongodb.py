@@ -8,7 +8,7 @@ from pymongo.errors import DuplicateKeyError
 
 class DB_Cliente:
     def __init__(self):
-        client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING)
+        client = AsyncIOMotorClient(settings.MONGO_URI)
         self.db = client['cliente']
 
         self.collection_name = 'clientes'
